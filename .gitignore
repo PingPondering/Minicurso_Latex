@@ -1,0 +1,34 @@
+# Erros e Logs de Compilação
+*.log
+*.blg
+*.ilg
+*.fdb_latexmk
+*.fls
+*.chktex
+*.synctex.gz
+
+# Arquivos Auxiliares Comuns
+*.aux
+*.bbl
+*.toc
+*.out
+*.lof
+*.lot
+*.idx
+*.ind
+*.bcf
+*.xml
+
+# Arquivos temporários de pacotes específicos (ex: Beamer, TikZ, BibLaTeX)
+*.nav
+*.snm
+*.vrb
+*.maf
+*.mtc*
+*.run.xml
+*-blx.bib
+
+# Backup e Auto-save de editores (TeXstudio, TeXworks, etc.)
+*.bak
+*.sav
+*~

@@ -1,0 +1,51 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{indentfirst}
+\usepackage{fancyhdr}
+\usepackage{csquotes}
+\usepackage{fontspec}
+\usepackage{multicol}
+\usepackage{titlesec}
+\usepackage[brazil]{babel}
+\usepackage[backend=biber,style=abnt]{biblatex} % abntex2cite precisa de "root"
+\usepackage[top=3cm,bottom=2cm,right=2cm,left=3cm]{geometry}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{makecell}
+\usepackage{dirtytalk}
+\usepackage{booktabs}
+
+\graphicspath{{./Extras/}}
+
+\setmainfont{Times New Roman}
+
+\renewcommand{\headrulewidth}{0pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+
+\addbibresource{referencias.bib}
+
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{1.25cm}
+
+\author{Seu Nome}
+\title{Nome do Artigo}
+\date{2026}
+
+\onehalfspacing % Definindo espaçamento de 1.5
+
+
+% Títulos em tamanho 12
+\titleformat{\section}
+  {\normalfont\fontsize{12}{12}\bfseries}
+  {\thesection}{1em}{}
+
+\begin{document}
+
+
+\end{document}

@@ -1,0 +1,70 @@
+\documentclass[12pt, a4paper]{article}
+
+%  Alguns pacotes iniciais
+\usepackage[utf8]{inputenc}   % Codificação de caracteres (acentuação direta)
+\usepackage[T1]{fontenc}      % Codificação de fontes para o português
+\usepackage[brazil]{babel}    % Tradução de termos e hifenização para o português
+\usepackage{geometry}         % Definição de margens
+\geometry{top=3cm, bottom=2cm, left=3cm, right=2cm}
+
+%  Pacotes de notação matemática
+\usepackage{amsmath}   % Ferramentas avançadas para matemática
+\usepackage{amsfonts}  % Conjuntos de números (reais, inteiros, etc.)
+\usepackage{amssymb}   % Símbolos matemáticos adicionais
+
+%  Cabeçalho
+\title{Título}
+\author{Seu Nome \\ 
+\small Universidade Federal}
+\date{\today}
+
+\begin{document}
+
+\maketitle % Aqui gera-se um título com base no cabeçalho
+
+\begin{abstract}
+Aqui é o resumo do artigo. O LaTeX separa a estrutura lógica do texto da formatação visual, permitindo que o pesquisador foque no conteúdo.
+\end{abstract}
+
+% Explicar aqui as seções
+\section{Introdução}
+Aqui começa a introdução do seu texto acadêmico. O LaTeX lida de forma automática com a numeração de seções.
+
+% E subseções
+\subsection{Justificativa}
+Subseções.
+
+\section{Notações de fórmulas  matemáticas}
+
+Texto corrido pode conter equações inline, como $y_i = \beta_0 + \beta_1 x_i + \epsilon_i + \delta_i +\gamma_i$, que se ajustam perfeitamente à linha.
+
+Para equações destacadas (display mode) e numeradas, utilizamos o ambiente \textbf{equation}:
+\begin{equation}
+    \hat{\beta}_i = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^{n} (x_i - \bar{x})^2}
+    \label{eq:mqo}
+\end{equation}
+
+Podemos referenciar a Equação \ref{eq:mqo} automaticamente ao longo do texto usando os comandos \texttt{\textbackslash label} e \texttt{\textbackslash ref}.
+
+Para sistemas de equações ou alinhamento complexo, usamos o ambiente \textbf{align*}:
+\begin{align*}
+    f(x) &= (2x + 3)/2x \\
+    f(x) &=\frac{2x+3}{2x} \\
+    f(x) + g(x) &= x^2 + 2x + 2
+\end{align*}
+
+%Exemplo da função dentro do \[    \] no lugar do & e sem precisar usar o align
+    \[g(x)= x^2 - 1\] 
+
+Se eu não quiser alinhar usa-se \textbf{enumerate}: \\
+
+\begin{enumerate}
+%Exemplo da função dentro do $ $
+\item[A)] $f(x)=\frac{2x+3}{2x}$ \\
+\item[B)] $f(x)=x^2 - 1$ \\
+\item [C)] $fxf(x) + g(x)= x^2 + 2x + 2$
+
+
+\end{enumerate}
+
+\end{document}

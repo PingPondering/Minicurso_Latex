@@ -1,0 +1,371 @@
+\documentclass[aspectratio=169]{beamer} % Não é obrigatório deixar 16:9
+
+% Desnecessários em compiladores que aceitam UTF-8 por padrão, manter é boa prática
+% caso planeje disponibilizar o código
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+
+% Funções adicionais envolvendo notação matemática
+\usepackage{amsmath, amsfonts, amssymb}
+
+% Belezas visuais e funções adicionais de edição
+\usepackage{csquotes}
+\usepackage{float}
+\usepackage{makecell}
+\usepackage{dirtytalk} % O nome desse pacote é genial
+\usepackage{booktabs}
+\usepackage{fancyhdr}
+\usepackage{csquotes}
+
+\usepackage{pifont}
+
+\usepackage[document]{ragged2e} % Só pra justificar, não precisa usar isso
+\usepackage{xcolor} % serve pra colorir texto
+\usepackage{fontspec} % configurações de fonte
+\usepackage{multicol} % funções simples de coluna
+\usepackage{hyperref} % links externos e internos
+
+% Só para os links ficarem com aparência de link
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=black
+}
+
+
+% Referencial bibliográfico em ABNT sem esforço
+\usepackage[backend=biber,style=abnt]{biblatex} % abntex2cite precisa de "root"
+
+\setbeamersize{text margin left=0.8cm, text margin right=0.8cm}
+
+% Endereço da pasta de imagens e arquivos adicionais
+\graphicspath{{./Extras/}}
+
+% Configuração de fonte
+\setmainfont{Times New Roman}
+
+% Endereço do arquivo de referências
+\addbibresource{referencias.bib}
+
+% Vários temas ficam disponíveis, uma busca rápida no google mostra opções, a
+% escolha fica a seu critério.
+\usetheme{Boadilla}
+
+
+% Cabeçalho interno
+\title{Título da apresentação}
+
+\subtitle{subtítulo}
+\author{Autoria}
+\date{\today}
+
+
+
+% A partir daqui começamos o documento propriamente dito
+\begin{document}
+
+% Abaixo o exemplo de geração de slide título, este usa o cabeçalho fornecido
+\frame{\titlepage}
+
+
+\begin{frame}
+
+    \frametitle{Introdução}
+
+    \begin{center}
+        ``DON'T PANIC"
+       \textit{\cite{adams}}
+    \end{center}
+
+    \begin{block}{\centering O que é \LaTeX?}
+        \centering
+        Trata-se de um sistema de preparação de documentos científico/acadêmicos.
+
+    \end{block}
+
+    Para quem nunca teve contato com linguagens de programação ou correlatos, a
+    primeira experiência com a linguagem pode ser intimidadora. Confie na gente, é
+    bem mais simples do que a sintaxe pomposa faz parecer. Links úteis pra conferir
+    (só clicar):
+    \vspace{6pt}
+
+    \begin{itemize}
+
+        \item \href{https://learnxinyminutes.com/pt-br/latex/}{Guia de primeiros
+            passos em português (recomendação pessoal)}
+
+        \item \href{https://www.latex-project.org/help/documentation/\#general-documentation}{Documentação
+            oficial}
+
+        \item \href{https://www.overleaf.com/learn/latex/Learn\_LaTeX\_in\_30\_minutes}{Guia
+            do Overleaf}
+
+        \item \href{https://typst.app/docs/reference/symbols/sym/}{Símbolos
+            matemáticos}
+
+    \end{itemize}
+
+
+\end{frame}
+
+
+
+\begin{frame}
+    \frametitle{Funcionamento básico}
+
+    A compilar, o \LaTeX segue uma série de parâmetros pra otimizar e uniformizar
+    textos acadêmicos. Quando se entende a lógica base tudo fica bem simples.
+
+    No caso de aprestações, estruturas extras e convenções
+    adicionais de sintaxe são usadas. Tentamos incluir a maioria delas nesse slide
+    exemplo.
+
+    Abaixo exemplos de bullet:
+    \vspace{1em} % insere espaçamento horizontal
+
+
+    % A primeira vista isso pode parecer confuso ou prolixo, de verdade é mais
+    % simples do que parece. A maior parte da sintaxe é preenchida por auto complete
+    % pelos editores de código mais populares a disposição.
+
+    % Minipages e disposição de colunas serão abordadas no capítulo seguinte
+
+    \begin{multicols*}{2}
+
+        \begin{minipage}{\columnwidth}
+            \begin{itemize}
+
+                \item Aqui consta um bullet
+                \item Aqui consta outro bullet
+                \item Advinha? Mais um bullet
+
+            \end{itemize}
+
+        \end{minipage}
+
+
+        \columnbreak % quebra colunas
+
+        \begin{minipage}{\columnwidth}
+
+            \begin{enumerate}
+
+                % Funciona dos dois jeitos abaixo, delimitação explícita ou implícita
+                \item{Essa é outra maneira de criar bullets}
+                \item Bullet fundamental
+                \item Imagine algo importante
+
+            \end{enumerate}
+        \end{minipage}
+
+
+    \end{multicols*}
+
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Colunas e disposição de elementos}
+
+    \begin{multicols*}{2} % Define o número de colunas utilizado no campo
+
+        \begin{minipage}{\columnwidth}
+            \hfill % Comando útil pra lidar com controle de espaçamentos horizontais
+
+            Aqui criamos um ambiente segmentado em duas colunas.
+            O asterisco no ambiente e as \emph{minipages} server pra que o \LaTeX
+            não tome liberdades na disposição do conteúdo.
+
+            \begin{block}{\centering Observação}
+                Leia o código junto com o PDF, nele há comentários e exemplos que
+                facilitam a compreensão.
+
+            \end{block}
+
+            \hfill
+
+        \end{minipage}
+
+        \columnbreak
+
+        \begin{minipage}{\columnwidth}
+
+            \begin{figure}[H]
+
+                \centering
+
+                % O href foi somente pra que o qr code fosse clicável e abrisse o
+                % link. É bom evitar usar isso porque redirecionamento de links é um
+                % comportadamente que pode ser interpretado como potencialmente
+                % malicioso por alguns antivirus, porque abre margem pra alguém por
+                % links maliciosos. Note
+
+                \href{https://www.overleaf.com/learn/latex/Inserting\_Images\%23Positioning}{
+                \includegraphics[width=0.3\textwidth]{over_images.png}
+            }
+
+            \caption{Documentação de exemplos com imagens}
+            \label{fig:hehe}
+
+            \end{figure}
+
+            \vspace{-1em}
+
+            % usasse "em" pra se referir ao tamanho padrão de uma linha, vspace
+            % adiciona ou remove espaços verticalmente. Também pode-se usar pt, que
+            % refere-se a tamanho de fonte e cm pra referir-se ao tamanho diretamente
+            % em centímetros
+
+            Ao citar objetos usa-se um \emph{label}, fazer isso
+            garante que quaisquer mudanças sejam reconhecidas na hora
+            de compilar o documento. Ordenamentos ficam corrigidos assim, exemplo:
+            figura \ref{fig:hehe}.
+
+
+        \end{minipage}
+
+    \end{multicols*}
+
+
+\end{frame}
+
+
+
+\begin{frame}
+    \frametitle{Equações e notação matemática}
+
+    Exemplo integrado de equação:
+    ``Uma vez o físico da língua pra fora disse: $E = MC^2$"
+
+    \vspace{1em}
+    Exemplo solto de equação:
+
+    % Dá pra fazer isso com símbolos de cifrão também, fica a critério
+    \[
+            Z[J]=
+            \int \mathcal{D}\phi\,
+            \exp\left\{
+                i\int_{\mathbb{R}^{1,3}}
+                \left[
+                    \frac{1}{2}\partial_\mu\phi\,\partial^\mu\phi
+                    -\frac{m^2}{2}\phi^2
+                    -\frac{\lambda}{4!}\phi^4
+                    +J(x)\phi(x)
+                    \right]d^4x
+                \right\}
+        \]
+
+        \vspace{1em}
+        Exemplo de ambiente de equação:
+
+
+        \begin{equation}
+            \begin{aligned}
+                \underbrace{
+                    \frac{\partial \mathbf{u}}{\partial t}
+                    +(\mathbf{u}\cdot\nabla)\mathbf{u}
+                    =-\frac{1}{\rho}\nabla p
+                    +\nu\nabla^2\mathbf{u}
+                    +\mathbf{f},
+                }_{\text{Navier-Stokes}}
+                \\[6pt]
+                \nabla\cdot\mathbf{u}&=0.
+            \end{aligned}
+            \label{eq:navier}
+        \end{equation}
+
+
+
+
+\end{frame}
+
+
+
+\begin{frame}
+    \frametitle{Tabelas}
+    % O conteúdo a seguir foi feito pelo stargazer (R)
+
+    % Aqui consta a função padrão para separar colunas, citamos a outra por que
+    % interage melhor com alguns tipos de edição
+    \begin{columns}
+
+        \column{0.6\textwidth}
+
+        \begin{table}[!htbp] \centering
+            \caption{Reressão meramente ilustrativa}
+            \label{}
+            \begin{tabular}{@{\extracolsep{5pt}}lc}
+                \\[-1.8ex]\hline
+                & \multicolumn{1}{c}{\textit{Dependent variable:}} \\
+                \cline{2-2}
+                \\[-1.8ex] & agro \\
+                \hline \\[-1.8ex]
+                Agro & 0,176$^{***}$ \\
+                & (0,002) \\
+                & \\
+                Pib & $-$0,0001$^{***}$ \\
+                & (0,00003) \\
+                & \\
+                \hline \\[-1.8ex]
+                Observations & 103.189 \\
+                R$^{2}$ & 0,114 \\
+                \hline \\[-1.8ex]
+                \textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0,1; $^{**}$p$<$0,05; $^{***}$p$<$0,01} \\
+            \end{tabular}
+        \end{table}
+
+        \column{0.4\textwidth}
+
+        Exemplo de colunas assimétricas e uma tabela de regressão gerada no stargazer
+        do R.
+
+        {
+            \Huge
+            \vspace{-1.2em}
+            $$\leftarrow$$
+        }
+
+        Tabelas podem gerar alguma dificuldade inicial. Linguagens de programação tem
+        ferramentas que já as formatam pra LaTeX.
+
+        \begin{itemize}
+            \item \href{https://www.tablesgenerator.com/latex\_tables}{Ferramenta
+                online pra converter tabelas CSV ou excel para LaTeX}
+
+            \item \href{https://www.overleaf.com/learn/latex/Tables}{Documentação do
+                Overleaf}
+
+        \end{itemize}
+
+        % citação fantasma
+        \nocite{latexproject}
+        \nocite{latex_in_y}
+        \nocite{overleaf_learn_latex}
+
+
+    \end{columns}
+
+
+\end{frame}
+
+\begin{frame}
+
+    \begin{center}
+        \Huge
+        Valeu, pessoal!
+    \end{center}
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Referências}
+    \printbibliography
+
+\end{frame}
+
+
+\end{document}
+
